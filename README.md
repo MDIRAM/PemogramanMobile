@@ -1,13 +1,13 @@
-# Praktikum Flutter Fundamental
+# Praktikum Pemrograman Mobile
 
-Kumpulan hasil praktikum **Flutter Fundamental** (Pertemuan 1–3) yang membahas dasar-dasar pengembangan aplikasi mobile dengan Flutter dan Dart, mulai dari widget dan layout, daftar data dan navigasi, hingga form dan state management dengan Provider.
+Kumpulan hasil praktikum **Pemrograman Mobile** (Pertemuan 1–7) yang membahas pengembangan aplikasi mobile dari tingkat dasar hingga penerapan proyek terpadu dengan Flutter dan Dart.
 
 | | |
 |---|---|
 | **Nama** | Muhamad Dika Ramadhan |
 | **NIM** | 20240801045 |
 | **Program Studi** | Teknik Informatika |
-| **Mata Kuliah** | Praktikum Flutter Fundamental |
+| **Mata Kuliah** | Pemrograman Mobile |
 
 ## Daftar Isi
 
@@ -15,154 +15,133 @@ Kumpulan hasil praktikum **Flutter Fundamental** (Pertemuan 1–3) yang membahas
 - [Pertemuan 1: Pengenalan Flutter dan Aplikasi Pertama](#pertemuan-1-pengenalan-flutter-dan-aplikasi-pertama)
 - [Pertemuan 2: Layout, ListView, dan Navigasi](#pertemuan-2-layout-listview-dan-navigasi)
 - [Pertemuan 3: Form Input dan State Management](#pertemuan-3-form-input-dan-state-management)
+- [Pertemuan 4: REST API, Async, dan FutureBuilder](#pertemuan-4-rest-api-async-dan-futurebuilder)
+- [Pertemuan 5: Penyimpanan Lokal (SharedPreferences & SQLite)](#pertemuan-5-penyimpanan-lokal-sharedpreferences--sqlite)
+- [Pertemuan 6: Tema, Routing, Navigasi Tab, dan Animasi](#pertemuan-6-tema-routing-navigasi-tab-dan-animasi)
+- [Pertemuan 7: Mini Proyek Terpadu (TabungKu)](#pertemuan-7-mini-proyek-terpadu-tabungku)
 - [Teknologi](#teknologi)
 - [Cara Menjalankan](#cara-menjalankan)
 - [Struktur Repositori](#struktur-repositori)
-- [Konsep yang Dipelajari](#konsep-yang-dipelajari)
 - [Referensi](#referensi)
+
+---
 
 ## Ringkasan Pertemuan
 
-| Pertemuan | Topik | Proyek | Aplikasi Tugas |
+| Pertemuan | Topik | Proyek | Aplikasi / Fokus Utama |
 |:-:|---|---|---|
-| 1 | Pengenalan Flutter, instalasi, widget dasar, `StatefulWidget` | `praktikum_1` | Kartu Perkenalan |
-| 2 | Layout, `ListView.builder`, model data, `Navigator` | `praktikum_2` | Daftar Kontak |
-| 3 | `TextField`, `Form` dan validasi, `Provider` | `praktikum_3` | Daftar Belanja |
+| 1 | Pengenalan Flutter, Widget dasar, `StatefulWidget` | `praktikum_1` | Kartu Perkenalan |
+| 2 | Layout, `ListView.builder`, Model Data, Navigasi | `praktikum_2` | Daftar Kontak |
+| 3 | Input Teks, Validasi Form, Provider | `praktikum_3` | Daftar Belanja |
+| 4 | Asinkron, REST API, JSON, `FutureBuilder` | `praktikum_4` | Daftar Postingan & Komentar |
+| 5 | Storage Lokal: `SharedPreferences` & `SQLite` | `praktikum_5` | Pencatat Pengeluaran |
+| 6 | Theme Material 3, Named Routes, Tab, Animasi | `praktikum_6` | Katalog Interaktif |
+| 7 | Mini Proyek Terpadu (Integrasi Modul 1–6) | `TabungKu` | To-Do List + Keuangan Harian |
 
 ---
 
 ## Pertemuan 1: Pengenalan Flutter dan Aplikasi Pertama
 
-**Tujuan:** memasang Flutter SDK, membuat dan menjalankan proyek pertama, memahami struktur proyek dan widget tree, serta memakai hot reload.
+**Tujuan:** Memasang Flutter SDK, verifikasi lingkungan, memahami struktur proyek dan *widget tree*, serta menerapkan interaktivitas dasar.
 
-**Praktikum**
-
-- Instalasi dan verifikasi lingkungan dengan `flutter doctor`.
-- Aplikasi "Hello Flutter" dengan `MaterialApp`, `Scaffold`, `AppBar`, `Center`, dan `Text`.
-- Layout vertikal dengan `Column`, `Icon`, dan `SizedBox`.
-- Counter interaktif dengan `StatefulWidget` dan `setState()`.
-
-**Latihan mandiri**
-
-- Mengubah warna `AppBar` dan teks.
-- Menambah tombol kurang dan tombol reset.
-- Mencegah angka counter menjadi negatif.
-
-**Tugas:** aplikasi **Kartu Perkenalan** satu halaman yang menampilkan ikon, nama, NIM, jurusan, dan hobi.
+- **Praktikum:**
+    - Verifikasi sistem via `flutter doctor`.
+    - Aplikasi "Hello Flutter" (`MaterialApp`, `Scaffold`, `AppBar`, `Center`, `Text`).
+    - Layout vertikal dengan `Column`, `Icon`, dan `SizedBox`.
+    - Counter interaktif menggunakan `StatefulWidget` dan `setState()`.
+- **Tugas:** Aplikasi **Kartu Perkenalan** satu halaman berisi foto/ikon, Nama, NIM, Jurusan, dan Hobi.
 
 ---
 
 ## Pertemuan 2: Layout, ListView, dan Navigasi
 
-**Tujuan:** menyusun layout dengan `Container`, `Padding`, `Row`, `Column`, dan `Expanded`; menampilkan daftar data; memodelkan data dengan class Dart; dan berpindah halaman sambil mengirim data.
+**Tujuan:** Menyusun tata letak responsif, menampilkan daftar data efisien, serta berpindah halaman sambil mengirimkan data.
 
-**Praktikum**
-
-- Kartu profil dengan `Container`, `BoxDecoration`, `CircleAvatar`, dan `Expanded`.
-- Model data `Makanan` dan daftar menu dengan `ListView.builder`, `Card`, serta `ListTile`.
-- Navigasi ke halaman detail dengan `Navigator.push` dan `Navigator.pop`; data dikirim lewat constructor.
-
-**Latihan mandiri**
-
-- Menambah menu hingga 7 item.
-- Menambah properti deskripsi pada model dan menampilkannya di halaman detail.
-- Mengganti `Card` dengan `Container` berlatar warna dan sudut membulat.
-- Membuat fungsi `formatRupiah()` untuk format ribuan (contoh: `Rp 15.000`).
-
-**Tugas:** aplikasi **Daftar Kontak** dengan 6 kontak (nama, telepon, email), avatar berisi huruf pertama nama, dan halaman detail dengan tombol kembali.
+- **Praktikum:**
+    - Kartu profil (`Container`, `BoxDecoration`, `CircleAvatar`, `Expanded`).
+    - Model data `Makanan` dan daftar menu via `ListView.builder`, `Card`, dan `ListTile`.
+    - Navigasi halaman detail via `Navigator.push` & `Navigator.pop`.
+- **Tugas:** Aplikasi **Daftar Kontak** (minimal 6 kontak) dengan avatar huruf pertama, halaman detail, dan tombol kembali.
 
 ---
 
 ## Pertemuan 3: Form Input dan State Management
 
-**Tujuan:** mengambil input pengguna, membuat form dengan validasi, memahami keterbatasan `setState`, serta menerapkan `ChangeNotifier` dan `Provider`.
+**Tujuan:** Pengolahan input pengguna, validasi formulir, serta penerapan state management global dengan `Provider`.
 
-**Praktikum**
+- **Praktikum:**
+    - Input teks dengan `TextField` & `TextEditingController` (serta fungsi `dispose()`).
+    - Validasi form dengan `Form`, `GlobalKey<FormState>`, `TextFormField`, dropdown, dan checkbox.
+    - State Management menggunakan `ChangeNotifierProvider`, `context.watch`, dan `context.read`.
+- **Tugas:** Aplikasi **Daftar Belanja** dengan form validasi (nama, jumlah > 0, kategori) dan indikator barang belum dibeli pada `AppBar`.
 
-- Input dasar dengan `TextField` dan `TextEditingController`, termasuk `dispose()`.
-- Form pendaftaran dengan `Form`, `GlobalKey<FormState>`, `TextFormField`, dropdown, dan checkbox.
-- Aplikasi **Daftar Tugas** dengan `ChangeNotifier`, `ChangeNotifierProvider`, `context.watch`, dan `context.read`.
+---
 
-**Latihan mandiri**
+## Pertemuan 4: REST API, Async, dan FutureBuilder
 
-- Validasi judul tugas minimal 3 karakter.
-- Method `hapusSelesai()` beserta tombol di `AppBar`.
-- `SnackBar` "Tugas ditambahkan" setelah tugas disimpan.
-- Teks "Belum ada tugas" saat daftar kosong.
+**Tujuan:** Memahami pemrograman asinkron (`Future`, `async`, `await`), melakukan HTTP request, parsing JSON ke Model, dan menangani state UI.
 
-**Tugas:** aplikasi **Daftar Belanja** dengan:
+- **Praktikum:**
+    - Simulasi masa tunggu asinkron (`Future.delayed`).
+    - Integrasi REST API JSONPlaceholder dengan paket `http`.
+    - Data model dengan factory `fromJson`.
+    - Pengolahan status UI (loading, error, data) menggunakan `FutureBuilder`.
+- **Tugas:** Aplikasi **Daftar Postingan** dengan endpoint `/posts` dan `/comments`, lengkap dengan penanganan *error retry*.
 
-- Form tambah barang: nama (wajib), jumlah (wajib, angka lebih dari 0), dan kategori (dropdown), semuanya divalidasi.
-- Halaman daftar: barang dapat dicentang sebagai "sudah dibeli" dan dihapus.
-- State disimpan pada satu `ChangeNotifier` dan dibagikan dengan Provider; `AppBar` menampilkan jumlah barang yang belum dibeli.
+---
+
+## Pertemuan 5: Penyimpanan Lokal (SharedPreferences & SQLite)
+
+**Tujuan:** Menyimpan data secara permanen (*persistence*) menggunakan pasangan *key-value* dan database relasional lokal.
+
+- **Praktikum:**
+    - Simpan pengaturan ringan (nama, mode gelap, hitungan buka app) via `shared_preferences`.
+    - Database `sqflite`: Membuat tabel, model `toMap()`/`fromMap()`, dan query parametrik.
+    - Operasi CRUD lengkap (Create, Read, Update, Delete).
+- **Tugas:** Aplikasi **Pencatat Pengeluaran** berbasis SQLite dengan kalkulasi total pengeluaran dan simpan filter terakhir.
+
+---
+
+## Pertemuan 6: Tema, Routing, Navigasi Tab, dan Animasi
+
+**Tujuan:** Kustomisasi tema terpusat, pengorganisasian rute aplikasi, navigasi tab bawah, dan penerapan berbagai animasi UI.
+
+- **Praktikum:**
+    - Dynamic Theme (Material 3) dengan `ThemeData`, `ColorScheme.fromSeed`, dan `ThemeMode`.
+    - *Named Routes* (`routes`, `onGenerateRoute`, parameter argument).
+    - Structuring halaman dengan `NavigationBar` & `IndexedStack`.
+    - Implementasi Animasi Implisit (`AnimatedContainer`), Transisi `Hero`, dan Animasi Eksplisit (`AnimationController`).
+- **Tugas:** Aplikasi **Katalog Interaktif** dengan 3 tab, transisi `Hero`, animasi interaktif, dan pengaturan warna tema tersimpan.
+
+---
+
+## Pertemuan 7: Mini Proyek Terpadu (TabungKu)
+
+**Tujuan:** Mengintegrasikan seluruh materi Pertemuan 1–6 dalam satu aplikasi utuh berorientasi kebutuhan nyata.
+
+- **Deskripsi:** Aplikasi To-Do List terintegrasi pencatatan keuangan dan target tabungan harian.
+- **Fitur Utama:**
+    - **Daftar & Form Kegiatan:** Input nama, tanggal (*DatePicker*), jenis (Tanpa Uang / Pemasukan / Pengeluaran), nominal, dan kategori.
+    - **Penyimpanan SQLite:** Seluruh transaksi dan daftar kegiatan tersimpan di database lokal.
+    - **Laporan & Agregasi SQL:** Perhitungan ringkasan (`SUM`, `CASE WHEN`, `COALESCE`) untuk pemasukan, pengeluaran, dan saldo harian.
+    - **Target Tabungan & Animasi:** Progress bar target tabungan harian beranimasi.
+    - **Theme & Shell Navigation:** 3 Tab Navigasi (`NavigationBar`), *Named Routes*, dan Sinkronisasi State (*Observer Pattern*).
 
 ---
 
 ## Teknologi
 
-- [Flutter](https://flutter.dev) (SDK stabil) dan bahasa [Dart](https://dart.dev)
-- Material Design 3 (`useMaterial3: true`)
-- Paket [`provider`](https://pub.dev/packages/provider) (khusus Pertemuan 3)
-- Editor: Android Studio atau VS Code dengan ekstensi Flutter dan Dart
-- Pengujian di emulator Android (Pixel)
+- **Framework:** [Flutter](https://flutter.dev) (SDK Stable)
+- **Bahasa Pemrograman:** [Dart](https://dart.dev)
+- **Penyimpanan & State:** `provider`, `shared_preferences`, `sqflite`, `path`
+- **Jaringan:** `http`
+- **OS Environment:** Linux Mint
+- **Editor:** Android Studio / VS Code
+
+---
 
 ## Cara Menjalankan
 
-1. Pasang Flutter SDK dan pastikan lingkungan siap:
-
+1. **Verifikasi lingkungan Flutter:**
    ```bash
    flutter doctor
-   ```
-
-2. Masuk ke folder pertemuan yang ingin dijalankan, lalu unduh dependensi:
-
-   ```bash
-   cd praktikum_3
-   flutter pub get
-   ```
-
-3. Jalankan di emulator atau perangkat yang terhubung:
-
-   ```bash
-   flutter run
-   ```
-
-> **Catatan:** Pertemuan 3 memakai paket `provider`. Bila paket belum ada, jalankan `flutter pub add provider`. Setelah menambah paket, lakukan *restart* penuh aplikasi (bukan hot reload). Ubahan pada `main()` atau data `const` juga membutuhkan *hot restart*.
-
-## Struktur Repositori
-
-Sesuaikan dengan susunan proyek Anda.
-
-```text
-flutter-praktikum/
-├── praktikum_1/
-│   └── lib/main.dart        # Hello Flutter, counter, Kartu Perkenalan
-├── praktikum_2/
-│   └── lib/main.dart        # Profil, Daftar Menu, Daftar Kontak
-├── praktikum_3/
-│   ├── lib/main.dart        # Input, Form, Daftar Tugas, Daftar Belanja
-│   └── pubspec.yaml         # dependensi provider
-└── README.md
-```
-
-## Konsep yang Dipelajari
-
-| Kategori | Konsep dan Widget |
-|---|---|
-| **Dasar** | Widget tree, `StatelessWidget`, `StatefulWidget`, `setState()`, hot reload |
-| **Layout** | `Scaffold`, `AppBar`, `Center`, `Column`, `Row`, `Container`, `Padding`, `Expanded`, `SizedBox`, `Divider` |
-| **Tampilan** | `Text`, `TextStyle`, `Icon`, `CircleAvatar`, `Card`, `ListTile`, `BoxDecoration` |
-| **Daftar dan data** | Class model Dart, `ListView.builder`, `const` list |
-| **Navigasi** | `Navigator.push`, `Navigator.pop`, `MaterialPageRoute`, kirim data lewat constructor |
-| **Form** | `TextField`, `TextEditingController`, `Form`, `TextFormField`, `validator`, `DropdownButtonFormField`, `CheckboxListTile`, `SnackBar` |
-| **State management** | `ChangeNotifier`, `notifyListeners()`, `ChangeNotifierProvider`, `context.watch`, `context.read` |
-
-## Referensi
-
-- [Dokumentasi Flutter](https://docs.flutter.dev)
-- [Dart Language Tour](https://dart.dev/language)
-- [Layout di Flutter](https://docs.flutter.dev/ui/layout)
-- [Navigasi](https://docs.flutter.dev/cookbook/navigation)
-- [Form dan validasi](https://docs.flutter.dev/cookbook/forms)
-- [Pengantar state management](https://docs.flutter.dev/data-and-backend/state-mgmt)
-- [Paket provider](https://pub.dev/packages/provider)
